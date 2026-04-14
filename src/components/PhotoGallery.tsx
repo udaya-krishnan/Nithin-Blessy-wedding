@@ -2,12 +2,12 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
-  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80",
-  "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80",
-  "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80",
-  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80",
+  "/weddingphoto1.jpeg",
+  "/weddingphoto2.jpeg",
+  "/weddingphoto3.jpeg",
+  "/weddingphoto4.jpeg",
+  "/weddingphoto5.jpeg",
+  "/weddingphoto1.jpeg",
 ];
 
 const PhotoGallery = ({ visible }: { visible: boolean }) => {

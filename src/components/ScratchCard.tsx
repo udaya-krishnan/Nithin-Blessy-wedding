@@ -22,7 +22,7 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
       canvas.height = canvas.offsetHeight * 2;
       ctx.scale(2, 2);
       ctx.drawImage(img, 0, 0, canvas.offsetWidth, canvas.offsetHeight);
-      
+
       // Add text on scratch surface
       ctx.fillStyle = "rgba(120, 80, 20, 0.7)";
       ctx.font = "600 14px 'Playfair Display', serif";
@@ -63,6 +63,23 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
     if (scratching) scratch(e.clientX, e.clientY);
   };
 
+  const handleAddToCalendar = () => {
+    // Google Calendar event link for June 10, 2026 at 11:00 AM
+    // Format: 20260610T110000 / 20260610T130000 (2hr duration)
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: "Fatima & Ahmed's Wedding",
+      dates: "20260610T110000/20260610T130000",
+      details: "Join us in celebrating the holy matrimony of Fatima & Ahmed. By the grace of God, we joyfully invite you to witness their union.",
+      location: "The Grand Ballroom",
+    });
+
+    window.open(
+      `https://calendar.google.com/calendar/render?${params.toString()}`,
+      "_blank"
+    );
+  };
+
   if (!visible) return null;
 
   return (
@@ -74,14 +91,15 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
         <h2 className="font-display text-4xl text-gold-gradient mb-6">
           Save The Date
         </h2>
+
         <div className="relative glass-card p-8 gold-glow overflow-hidden">
           {/* Revealed content */}
           <div className="text-center py-4">
             <p className="font-heading text-2xl text-primary mb-2">
-              December 20, 2025
+              June 10, 2026
             </p>
             <p className="font-serif text-lg text-muted-foreground">
-              Saturday, 6:00 PM
+              Wednesday, 11:00 AM
             </p>
             <p className="font-serif text-sm text-bougainvillea-light mt-2">
               The Grand Ballroom
@@ -101,6 +119,32 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
             />
           )}
         </div>
+
+        {/* Google Calendar button — appears after scratch */}
+        {revealed && (
+          <div className="mt-6 animate-fade-up">
+            <button
+              onClick={handleAddToCalendar}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-serif text-sm tracking-widest uppercase
+                         bg-gradient-to-r from-amber-700 via-yellow-500 to-amber-700
+                         text-white shadow-lg hover:shadow-yellow-400/30 hover:scale-105
+                         transition-all duration-300"
+            >
+              {/* Google Calendar icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="w-4 h-4 fill-white"
+              >
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z" />
+              </svg>
+              Add to Google Calendar
+            </button>
+            <p className="font-serif text-xs text-ivory/40 mt-3 tracking-wide">
+              Opens Google Calendar in a new tab
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

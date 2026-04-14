@@ -1,25 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const CountdownTimer = ({ visible }: { visible: boolean }) => {
+  // Wedding: June 10, 2026 at 11:00 AM
+  const targetDate = new Date("2026-06-10T11:00:00").getTime();
 
-  // Generate random future time (1–30 days)
-  const generateRandomDate = () => {
-    const now = Date.now();
-    const randomDays = Math.floor(Math.random() * 30) + 1;
-    const randomHours = Math.floor(Math.random() * 24);
-    const randomMinutes = Math.floor(Math.random() * 60);
-    const randomSeconds = Math.floor(Math.random() * 60);
-
-    return (
-      now +
-      randomDays * 86400000 +
-      randomHours * 3600000 +
-      randomMinutes * 60000 +
-      randomSeconds * 1000
-    );
-  };
-
-  const [targetDate] = useState(generateRandomDate());
   const [time, setTime] = useState({
     days: 0,
     hours: 0,
@@ -57,11 +41,19 @@ const CountdownTimer = ({ visible }: { visible: boolean }) => {
     <section className="relative z-10 px-6 py-16">
       <div className="max-w-md mx-auto text-center">
         <h2
-          className="font-display text-4xl text-gold-gradient mb-8 animate-fade-up"
+          className="font-display text-4xl text-gold-gradient mb-2 animate-fade-up"
           style={{ animationDelay: "2.2s", opacity: 0 }}
         >
           Counting Down
         </h2>
+
+        {/* Date & time display */}
+        <p
+          className="font-serif text-ivory/60 text-sm tracking-widest uppercase mb-8 animate-fade-up"
+          style={{ animationDelay: "2.35s", opacity: 0 }}
+        >
+          June 10, 2026 &nbsp;·&nbsp; 11:00 AM
+        </p>
 
         <div
           className="grid grid-cols-4 gap-3 animate-fade-up"
@@ -72,7 +64,6 @@ const CountdownTimer = ({ visible }: { visible: boolean }) => {
               <span className="font-heading text-3xl sm:text-4xl text-primary block">
                 {String(u.value).padStart(2, "0")}
               </span>
-
               <span className="font-serif text-xs tracking-[0.2em] uppercase text-muted-foreground mt-1 block">
                 {u.label}
               </span>

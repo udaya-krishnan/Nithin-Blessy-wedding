@@ -75,9 +75,7 @@ const FloralOverlay = ({ onOpen }: FloralOverlayProps) => {
           transform: isOpening ? "translateY(20px)" : "translateY(0)",
         }}
       >
-        <p className="font-heading text-ivory text-lg tracking-[0.3em] uppercase mb-4 animate-gentle-pulse">
-          بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-        </p>
+        
 
         <h1 className="font-display text-5xl md:text-7xl text-gold-gradient mb-6">
           You're Invited

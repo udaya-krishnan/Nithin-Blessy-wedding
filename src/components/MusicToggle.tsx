@@ -7,7 +7,7 @@ const MusicToggle = ({ shouldPlay }: { shouldPlay: boolean }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio("/new wedding nasheed.mpeg"); // set audio source here
+    const audio = new Audio("/i found you.mpeg"); // set audio source here
     audio.loop = true;
     audio.volume = 0.2;
 

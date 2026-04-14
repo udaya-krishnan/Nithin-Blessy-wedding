@@ -11,12 +11,20 @@ const HeroSection = ({ visible = true }: HeroSectionProps) => {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 z-10">
       <div className="text-center max-w-lg mx-auto">
 
-        {/* Bismillah */}
+        {/* Opening blessing */}
         <p
-          className="font-serif text-gold-light text-sm tracking-[0.3em] uppercase mb-8 animate-fade-up"
-          style={{ animationDelay: "0.3s" }}
+          className="font-serif text-bougainvillea-light text-sm sm:text-base uppercase tracking-[0.3em] mb-2 animate-fade-up"
+          style={{ animationDelay: "0.2s" }}
         >
-          بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+          By the grace of God
+        </p>
+
+        {/* Ceremony label */}
+        <p
+          className="font-heading text-ivory/60 text-xs sm:text-sm uppercase tracking-[0.4em] mb-8 animate-fade-up"
+          style={{ animationDelay: "0.4s" }}
+        >
+          ✦ Holy Matrimony ✦
         </p>
 
         {/* Bride name */}
@@ -24,7 +32,7 @@ const HeroSection = ({ visible = true }: HeroSectionProps) => {
           className="font-display text-6xl sm:text-7xl md:text-8xl text-gold-gradient animate-soft-glow animate-fade-up"
           style={{ animationDelay: "0.6s" }}
         >
-          Fatima
+          Blessy
         </h1>
 
         {/* Ampersand */}
@@ -40,7 +48,7 @@ const HeroSection = ({ visible = true }: HeroSectionProps) => {
           className="font-display text-6xl sm:text-7xl md:text-8xl text-gold-gradient animate-soft-glow animate-fade-up"
           style={{ animationDelay: "1.2s" }}
         >
-          Ahmed
+          Nithin
         </h1>
 
         {/* Floral Divider */}
@@ -63,6 +71,18 @@ const HeroSection = ({ visible = true }: HeroSectionProps) => {
           Together with their families
           <br />
           invite you to celebrate their wedding
+        </p>
+
+        {/* Scripture verse */}
+        <p
+          className="font-serif text-ivory/50 text-sm sm:text-base italic leading-relaxed mt-6 animate-fade-up"
+          style={{ animationDelay: "2.1s" }}
+        >
+          "Two are better than one, for they have a good reward for their toil."
+          <br />
+          <span className="not-italic tracking-widest text-xs text-gold-gradient opacity-70">
+            — Ecclesiastes 4:9
+          </span>
         </p>
 
       </div>
