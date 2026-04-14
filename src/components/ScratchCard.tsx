@@ -68,9 +68,9 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
     // Format: 20260610T110000 / 20260610T130000 (2hr duration)
     const params = new URLSearchParams({
       action: "TEMPLATE",
-      text: "Fatima & Ahmed's Wedding",
+      text: "Nithin & Blessy's Wedding",
       dates: "20260610T110000/20260610T130000",
-      details: "Join us in celebrating the holy matrimony of Fatima & Ahmed. By the grace of God, we joyfully invite you to witness their union.",
+      details: "Join us in celebrating the holy matrimony of Nithin & Blessy. By the grace of God, we joyfully invite you to witness their union.",
       location: "The Grand Ballroom",
     });
 
