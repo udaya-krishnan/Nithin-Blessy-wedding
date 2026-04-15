@@ -14,20 +14,27 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
 
     const img = new Image();
     img.src = scratchSurface;
+
     img.onload = () => {
       imgRef.current = img;
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
+
       canvas.width = canvas.offsetWidth * 2;
       canvas.height = canvas.offsetHeight * 2;
       ctx.scale(2, 2);
+
       ctx.drawImage(img, 0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
-      // Add text on scratch surface
+      // Scratch instruction text
       ctx.fillStyle = "rgba(120, 80, 20, 0.7)";
       ctx.font = "600 14px 'Playfair Display', serif";
       ctx.textAlign = "center";
-      ctx.fillText("Scratch to reveal the wedding date", canvas.offsetWidth / 2, canvas.offsetHeight / 2);
+      ctx.fillText(
+        "Scratch to reveal the wedding date",
+        canvas.offsetWidth / 2,
+        canvas.offsetHeight / 2
+      );
     };
   }, [visible]);
 
@@ -46,12 +53,14 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
     ctx.arc(cx, cy, 20, 0, Math.PI * 2);
     ctx.fill();
 
-    // Check reveal percentage
+    // Calculate reveal percentage
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let transparent = 0;
+
     for (let i = 3; i < imageData.data.length; i += 4) {
       if (imageData.data[i] < 128) transparent++;
     }
+
     if (transparent / (imageData.data.length / 4) > 0.4) {
       setRevealed(true);
     }
@@ -59,18 +68,18 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
 
   const handlePointerDown = () => setScratching(true);
   const handlePointerUp = () => setScratching(false);
+
   const handlePointerMove = (e: React.PointerEvent) => {
     if (scratching) scratch(e.clientX, e.clientY);
   };
 
   const handleAddToCalendar = () => {
-    // Google Calendar event link for June 10, 2026 at 11:00 AM
-    // Format: 20260610T110000 / 20260610T130000 (2hr duration)
     const params = new URLSearchParams({
       action: "TEMPLATE",
       text: "Nithin & Blessy's Wedding",
-      dates: "20260610T110000/20260610T130000",
-      details: "Join us in celebrating the holy matrimony of Nithin & Blessy. By the grace of God, we joyfully invite you to witness their union.",
+      dates: "20260510T110000/20260510T130000",
+      details:
+        "Join us in celebrating the holy matrimony of Nithin & Blessy. By the grace of God, we joyfully invite you to witness their union.",
       location: "The Grand Ballroom",
     });
 
@@ -89,14 +98,14 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
         style={{ animationDelay: "2.8s", opacity: 0 }}
       >
         <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient leading-[1.3] py-2 tracking-wide overflow-visible">
-  Save The Date
-</h2>
+          Save The Date
+        </h2>
 
         <div className="relative glass-card p-8 gold-glow overflow-hidden">
           {/* Revealed content */}
           <div className="text-center py-4">
             <p className="font-heading text-2xl text-primary mb-2">
-              June 10, 2026
+              May 10, 2026
             </p>
             <p className="font-serif text-lg text-muted-foreground">
               Wednesday, 11:00 AM
@@ -120,7 +129,7 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
           )}
         </div>
 
-        {/* Google Calendar button — appears after scratch */}
+        {/* Google Calendar button */}
         {revealed && (
           <div className="mt-6 animate-fade-up">
             <button
@@ -130,7 +139,6 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
                          text-white shadow-lg hover:shadow-yellow-400/30 hover:scale-105
                          transition-all duration-300"
             >
-              {/* Google Calendar icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -140,6 +148,7 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
               </svg>
               Add to Google Calendar
             </button>
+
             <p className="font-serif text-xs text-ivory/40 mt-3 tracking-wide">
               Opens Google Calendar in a new tab
             </p>

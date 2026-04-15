@@ -7,7 +7,7 @@ const GALLERY_IMAGES = [
   "/weddingphoto3.jpeg",
   "/weddingphoto4.jpeg",
   "/weddingphoto6.jpeg",
-  "/weddingphoto1.jpeg",
+  "/weddingphoto7.jpeg",
 ];
 
 const PhotoGallery = ({ visible }: { visible: boolean }) => {
