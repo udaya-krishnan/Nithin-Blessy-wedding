@@ -108,7 +108,7 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
               May 10, 2026
             </p>
             <p className="font-serif text-lg text-muted-foreground">
-              Wednesday, 11:00 AM
+              Sunday, 11:00 AM
             </p>
             <p className="font-serif text-sm text-bougainvillea-light mt-2">
               The Grand Ballroom
