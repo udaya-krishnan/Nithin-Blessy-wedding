@@ -8,8 +8,8 @@ const HeroSection = ({ visible = true }: HeroSectionProps) => {
   if (!visible) return null;
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 z-10">
-      <div className="text-center max-w-lg mx-auto">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 overflow-visible z-10">
+      <div className="text-center max-w-lg mx-auto pt-6 pb-6">
 
         {/* Opening blessing */}
         <p
@@ -27,29 +27,34 @@ const HeroSection = ({ visible = true }: HeroSectionProps) => {
           ✦ Holy Matrimony ✦
         </p>
 
-        {/* Bride name */}
-        <h1
-          className="font-display text-6xl sm:text-7xl md:text-8xl text-gold-gradient animate-soft-glow animate-fade-up"
-          style={{ animationDelay: "0.6s" }}
-        >
-          Blessy
-        </h1>
+        {/* Names Wrapper (prevents clipping) */}
+        <div className="overflow-visible">
 
-        {/* Ampersand */}
-        <p
-          className="font-heading text-bougainvillea-light text-3xl my-4 italic animate-fade-up"
-          style={{ animationDelay: "0.9s" }}
-        >
-          &
-        </p>
+          {/* First Name */}
+          <h1
+            className="font-display text-4xl sm:text-5xl md:text-6xl text-gold-gradient leading-[1.3] pt-2 pb-2 tracking-wide animate-soft-glow animate-fade-up"
+            style={{ animationDelay: "0.6s" }}
+          >
+            Nithin Sunny
+          </h1>
 
-        {/* Groom name */}
-        <h1
-          className="font-display text-6xl sm:text-7xl md:text-8xl text-gold-gradient animate-soft-glow animate-fade-up"
-          style={{ animationDelay: "1.2s" }}
-        >
-          Nithin
-        </h1>
+          {/* Ampersand */}
+          <p
+            className="font-heading text-bougainvillea-light text-2xl sm:text-3xl my-3 italic animate-fade-up"
+            style={{ animationDelay: "0.9s" }}
+          >
+            &
+          </p>
+
+          {/* Second Name */}
+          <h1
+            className="font-display text-4xl sm:text-5xl md:text-6xl text-gold-gradient leading-[1.3] pt-2 pb-2 tracking-wide animate-soft-glow animate-fade-up"
+            style={{ animationDelay: "1.2s" }}
+          >
+            Blessy Ann Jose
+          </h1>
+
+        </div>
 
         {/* Floral Divider */}
         <div

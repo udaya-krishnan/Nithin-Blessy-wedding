@@ -88,9 +88,9 @@ const ScratchCard = ({ visible }: { visible: boolean }) => {
         className="max-w-sm mx-auto text-center animate-fade-up"
         style={{ animationDelay: "2.8s", opacity: 0 }}
       >
-        <h2 className="font-display text-4xl text-gold-gradient mb-6">
-          Save The Date
-        </h2>
+        <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient leading-[1.3] py-2 tracking-wide overflow-visible">
+  Save The Date
+</h2>
 
         <div className="relative glass-card p-8 gold-glow overflow-hidden">
           {/* Revealed content */}

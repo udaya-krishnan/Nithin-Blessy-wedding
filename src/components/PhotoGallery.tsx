@@ -16,28 +16,32 @@ const PhotoGallery = ({ visible }: { visible: boolean }) => {
   if (!visible) return null;
 
   return (
-    <section className="relative z-10 px-6 py-16">
+    <section className="relative z-10 px-6 py-16 overflow-visible">
       <div
         className="max-w-lg mx-auto text-center animate-fade-up"
-        style={{ animationDelay: "3.8s", opacity: 0 }}
+        style={{ animationDelay: "3.8s" }} // removed opacity issue
       >
-        <h2 className="font-display text-4xl text-gold-gradient mb-8">
+        {/* Heading */}
+        <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient leading-[1.3] py-2 tracking-wide animate-soft-glow">
           Gallery
         </h2>
 
+        {/* Gallery Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {GALLERY_IMAGES.map((src, i) => (
             <button
               key={i}
               onClick={() => setLightbox(i)}
-              className="group relative aspect-square overflow-hidden rounded-lg border border-border/30 focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="group relative aspect-[2/3] overflow-hidden rounded-lg border border-border/30 focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <img
                 src={src}
                 alt={`Wedding gallery ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
+
+              {/* Hover overlay */}
               <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors duration-500" />
             </button>
           ))}
@@ -50,6 +54,7 @@ const PhotoGallery = ({ visible }: { visible: boolean }) => {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 backdrop-blur-md animate-fade-in"
           onClick={() => setLightbox(null)}
         >
+          {/* Close button */}
           <button
             onClick={() => setLightbox(null)}
             className="absolute top-6 right-6 text-foreground/80 hover:text-foreground transition-colors"
@@ -57,6 +62,8 @@ const PhotoGallery = ({ visible }: { visible: boolean }) => {
           >
             <X className="w-7 h-7" />
           </button>
+
+          {/* Image */}
           <img
             src={GALLERY_IMAGES[lightbox]}
             alt={`Wedding gallery ${lightbox + 1}`}

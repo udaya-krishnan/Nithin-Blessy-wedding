@@ -9,6 +9,7 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
       tag: "Wedding Ceremony",
       name: "St. George Orthodox Syrian Church",
       address: "Chuvannamannu, Thrissur, Kerala – 680652",
+      time: "11:00 AM",
       mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=St+George+Orthodox+Syrian+Church+Chuvannamannu+Thrissur+Kerala",
       delay: "3.1s",
@@ -18,6 +19,7 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
       tag: "Reception",
       name: "Dream City Convention Centre",
       address: "Peechi Road Junction, Pattikkad, Thrissur, Kerala – 680652",
+      time: "01:00 PM (Evening)",
       mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=Dream+City+Convention+Centre+Pattikkad+Thrissur+Kerala",
       delay: "3.4s",
@@ -25,13 +27,13 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
   ];
 
   return (
-    <section className="relative z-10 px-6 py-16">
+    <section className="relative z-10 px-6 py-16 overflow-visible">
       <div className="max-w-sm mx-auto text-center">
 
         {/* Section heading */}
         <h2
-          className="font-display text-4xl text-gold-gradient mb-10 animate-fade-up"
-          style={{ animationDelay: "2.9s", opacity: 0 }}
+          className="font-display text-3xl sm:text-4xl text-gold-gradient leading-[1.3] py-2 tracking-wide animate-soft-glow animate-fade-up"
+          style={{ animationDelay: "2.9s" }}
         >
           Venues
         </h2>
@@ -42,12 +44,17 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
             return (
               <div
                 key={venue.name}
-                className="glass-card p-8 gold-glow animate-fade-up"
-                style={{ animationDelay: venue.delay, opacity: 0 }}
+                className="glass-card p-8 gold-glow animate-fade-up overflow-visible"
+                style={{ animationDelay: venue.delay }}
               >
                 {/* Event type tag */}
-                <p className="font-serif text-xs uppercase tracking-[0.3em] text-bougainvillea-light mb-4">
+                <p className="font-serif text-xs uppercase tracking-[0.3em] text-bougainvillea-light mb-2">
                   {venue.tag}
+                </p>
+
+                {/* Time */}
+                <p className="font-serif text-sm text-ivory/70 mb-4 tracking-wide">
+                  {venue.time}
                 </p>
 
                 {/* Icon circle */}
@@ -58,7 +65,7 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
                 </div>
 
                 {/* Venue name */}
-                <h3 className="font-heading text-xl text-primary mb-2">
+                <h3 className="font-heading text-xl text-primary mb-2 leading-[1.3]">
                   {venue.name}
                 </h3>
 
@@ -67,7 +74,7 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
                   {venue.address}
                 </p>
 
-                {/* Google Maps button — fixed: was missing opening <a */}
+                {/* Google Maps button */}
                 <a
                   href={venue.mapsUrl}
                   target="_blank"
