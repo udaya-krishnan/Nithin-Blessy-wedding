@@ -6,7 +6,7 @@ const GALLERY_IMAGES = [
   "/weddingphoto2.jpeg",
   "/weddingphoto3.jpeg",
   "/weddingphoto4.jpeg",
-  "/weddingphoto5.jpeg",
+  "/weddingphoto6.jpeg",
   "/weddingphoto1.jpeg",
 ];
 
