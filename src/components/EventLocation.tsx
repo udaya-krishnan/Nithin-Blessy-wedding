@@ -19,7 +19,7 @@ const EventLocation = ({ visible }: { visible: boolean }) => {
       tag: "Reception",
       name: "Dream City Convention Centre",
       address: "Peechi Road Junction, Pattikkad, Thrissur, Kerala – 680652",
-      time: "01:00 PM (Evening)",
+      time: "01:00 PM (Afternoon)",
       mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=Dream+City+Convention+Centre+Pattikkad+Thrissur+Kerala",
       delay: "3.4s",
