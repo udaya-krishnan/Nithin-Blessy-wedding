@@ -31,51 +31,50 @@ const CountdownTimer = ({ visible }: { visible: boolean }) => {
   if (!visible) return null;
 
   const units = [
-    { label: "Days", value: time.days },
-    { label: "Hours", value: time.hours },
-    { label: "Minutes", value: time.minutes },
-    { label: "Seconds", value: time.seconds },
+    { label: "Days", short: "D", value: time.days },
+    { label: "Hours", short: "H", value: time.hours },
+    { label: "Minutes", short: "M", value: time.minutes },
+    { label: "Seconds", short: "S", value: time.seconds },
   ];
 
   return (
     <section className="relative z-10 px-6 py-16 overflow-visible">
       <div className="max-w-md mx-auto text-center pt-4 pb-4">
-        {/* Title Wrapper */}
+
+        {/* Title */}
         <div className="overflow-visible">
           <h2
-            className="font-display text-3xl sm:text-4xl text-gold-gradient leading-[1.3] pt-2 pb-2 tracking-wide animate-soft-glow animate-fade-up"
+            className="font-display text-3xl sm:text-4xl text-gold-gradient leading-[1.3] py-2 tracking-wide animate-soft-glow animate-fade-up"
             style={{ animationDelay: "2.2s" }}
           >
             Counting Down
           </h2>
         </div>
 
-        {/* Date & time display */}
-        {/* <p
-          className="font-serif text-ivory/60 text-sm tracking-widest uppercase mb-8 animate-fade-up"
-          style={{ animationDelay: "2.35s", opacity: 0 }}
-        >
-          May 10, 2026 &nbsp;·&nbsp; 11:00 AM
-        </p> */}
-
+        {/* Countdown Grid */}
         <div
-          className="grid grid-cols-4 gap-3 animate-fade-up"
-          style={{ animationDelay: "2.5s", opacity: 0 }}
+          className="grid grid-cols-4 gap-2 sm:gap-3 animate-fade-up"
+          style={{ animationDelay: "2.5s" }}
         >
           {units.map((u) => (
             <div
               key={u.label}
-              className="glass-card p-4 gold-glow text-center overflow-visible"
+              className="glass-card p-3 sm:p-4 gold-glow text-center overflow-hidden"
             >
-              <span className="font-heading text-3xl sm:text-4xl text-primary block leading-[1.3]">
+              {/* Number */}
+              <span className="font-heading text-2xl sm:text-4xl text-primary block leading-[1.3]">
                 {String(u.value).padStart(2, "0")}
               </span>
-              <span className="font-serif text-xs tracking-[0.2em] uppercase text-muted-foreground mt-1 block">
-                {u.label}
+
+              {/* Label */}
+              <span className="font-serif text-[10px] sm:text-xs tracking-[0.1em] sm:tracking-[0.2em] uppercase text-muted-foreground mt-1 block">
+                <span className="sm:hidden">{u.short}</span>
+                <span className="hidden sm:inline">{u.label}</span>
               </span>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
